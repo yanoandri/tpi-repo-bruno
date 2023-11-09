@@ -1,0 +1,15 @@
+meta {
+  name: Get
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{tpi_stg_url}}/payment/xendit/invoice/648aabe9a9441836ef6f512e
+  body: none
+}
+
+headers {
+  Authorization: Bearer {{process.env.TPI_SERVICE_API_KEY_STG}}
+  x-pugin-name: SHOPIFY2
+}

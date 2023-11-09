@@ -1,0 +1,14 @@
+meta {
+  name: Get Invoice Settings
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{invoice-settings-stg-url}}/settings/6334548aacd5a17fee791a0c
+  body: none
+}
+
+headers {
+  x-api-key: {{process.env.INVOICE_SETTINGS_API_KEY}}
+}

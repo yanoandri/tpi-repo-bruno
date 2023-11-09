@@ -1,0 +1,31 @@
+meta {
+  name: Create Checkout
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{tpi-gateway-prod}}/meta/v1/checkout/create
+  body: json
+}
+
+headers {
+  Authorization: Bearer 771bc53fbdd80d396ca291bb57f29199
+}
+
+body:json {
+  {
+    "external_id": "META-REFERENCE-ID-123-476",
+    "success_redirect_url": "https://httpstat.us/200",
+    "failure_redirect_url": "https://httpstat.us/400",
+    "cancel_redirect_url": "https://httpstat.us/400",
+  "account_id": "839054e9-b6d3-4b9f-b23a-ead16d3f74ff",
+    "amount": 120,
+    "currency": "PHP",
+    "restricted_payment_methods": [
+      "PAYMAYA"
+    ],
+    "locale": "en",
+    "description": "test"
+  }
+}

@@ -1,0 +1,24 @@
+meta {
+  name: Create Token
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{tpi_prod_url}}/authorization/xendit/token
+  body: json
+}
+
+body:json {
+  {
+      "oauth_data": {
+          "access_token": "",
+          "environment": "DEVELOPMENT",
+          "expires_at": "2023-02-15T04:53:06.351Z",
+          "refresh_token": "",
+          "scope": "INVOICE.READ INVOICE.WRITE CREDIT_CARD.READ CREDIT_CARD.WRITE CARDLESS_CREDIT.READ CARDLESS_CREDIT.WRITE CUSTOMER.READ CUSTOMER.WRITE",
+          "token_type": "Bearer"
+      },
+      "platform": "WOOCOMMERCE"
+  }
+}

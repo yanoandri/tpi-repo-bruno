@@ -1,0 +1,23 @@
+meta {
+  name: Initiate Account Linking
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{tpi-gateway-prod}}/meta/v1/accounts/connect_link
+  body: json
+}
+
+headers {
+  Authorization: Bearer 771bc53fbdd80d396ca291bb57f29199
+}
+
+body:json {
+  {
+    "external_account_id": "ext-1232114534-976",
+    "link_id": "link-1232151535-8126",
+    "success_redirect_url": "https://www.google.com",
+    "failure_redirect_url": "https://www.facebook.com"
+  }
+}

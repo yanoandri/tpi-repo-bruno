@@ -1,0 +1,14 @@
+meta {
+  name: Get CC Settings
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{tpi_prod_url}}/payment/xendit/settings/credit-card
+  body: none
+}
+
+headers {
+  Authorization: Basic {{process.env.PRIVATE_KEY_PROD_TEST}}
+}

@@ -1,0 +1,14 @@
+meta {
+  name: Get Invoice Settings
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{tpi_stg_url}}/payment/xendit/settings/invoice
+  body: none
+}
+
+headers {
+  Authorization: Basic {{process.env.PRIVATE_KEY_STG_TEST}}
+}

@@ -1,0 +1,46 @@
+meta {
+  name: Expire
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{tpi_prod_url}}/payment/xendit/invoice
+  body: json
+}
+
+headers {
+  x-plugin-name: BRUNO
+  Authorization: Basic {{process.env.PRIVATE_KEY_PROD_LIVE}}
+}
+
+body:json {
+  {
+      "amount": 10000,
+      "external_id": "3f34db11-67c2-4265-8e60-7a4eddcffd62d",
+      "success_redirect_url": "https://google.com",
+      "currency": "IDR",
+      "platform_callback_url": "https://webhook.site/ab76990d-154f-4382-9a86-eb8bab489db0",
+      "client_type": "INTEGRATION",
+      "invoice_duration": 31536000,
+      "customer": {
+          "full_name": "synthetics",
+          "email": "yano@xendit.co"
+      },
+      "description": "synthetics-test",
+      "payer_email": "yano@xendit.co",
+      "items": [
+          {
+              "name": "ItemName001",
+              "price": 100005,
+              "quantity": 1
+          }
+      ],
+      "internal_metadata": {
+          "tpi": {
+              "id": "test",
+              "platform": "WOOCOMMERCE"
+          }
+      }
+  }
+}

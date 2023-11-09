@@ -1,0 +1,14 @@
+meta {
+  name: Get checkout details by checkout id
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{tpi-gateway-prod}}/meta/v1/checkout/65315046afef1033da3a4656
+  body: none
+}
+
+headers {
+  Authorization: Bearer 771bc53fbdd80d396ca291bb57f29199
+}
