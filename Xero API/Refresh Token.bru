@@ -10,10 +10,10 @@ post {
 }
 
 headers {
-  Authorization: Basic QUY1RDdDRkYxRTE5NDg3NkFDMzNENUIwNjZCN0JENTA6dFZNTUx1c0xEME5ad0ZSb2VBd1MzbnZOYTV5MWJHa1RZWmR5Y0FheFhyY25rMDZv
+  Authorization: Basic {{process.env.BASIC_TOKEN}}
 }
 
 body:form-urlencoded {
   grant_type: refresh_token
-  refresh_token: 8Wlg6nxY6X3K5PSN8UnG87ySJYFfiuuQ2SBK9vR8MD4
+  refresh_token: ""
 }
