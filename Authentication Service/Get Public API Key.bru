@@ -1,0 +1,22 @@
+meta {
+  name: Get Public API Key
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{prod-url}}/api/v1/businesses/607018500f95de409d6e0ce9/authentication-data/public-api-key?environment=PRODUCTION
+  body: none
+  auth: none
+}
+
+query {
+  environment: PRODUCTION
+}
+
+headers {
+  x-api-key: {{process.env.AUTHENTICATION_SERVICE_API_KEY}}
+  client-version: v0.0.4
+  service-name: tpi
+  team-name: tpi-service
+}
