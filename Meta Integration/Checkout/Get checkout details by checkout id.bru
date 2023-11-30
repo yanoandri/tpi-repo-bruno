@@ -5,10 +5,11 @@ meta {
 }
 
 get {
-  url: {{tpi-gateway-prod}}/meta/v1/checkout/65315046afef1033da3a4656
+  url: {{tpi-gateway-prod}}/meta/v1/checkout/6568ba8742b4c574839949b2
   body: none
+  auth: none
 }
 
 headers {
-  Authorization: Bearer 771bc53fbdd80d396ca291bb57f29199
+  Authorization: Bearer {{process.env.META_TEST_KEY}}
 }

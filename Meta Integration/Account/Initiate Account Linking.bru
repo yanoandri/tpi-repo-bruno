@@ -7,10 +7,11 @@ meta {
 post {
   url: {{tpi-gateway-prod}}/meta/v1/accounts/connect_link
   body: json
+  auth: none
 }
 
 headers {
-  Authorization: Bearer 771bc53fbdd80d396ca291bb57f29199
+  Authorization: Bearer {{process.env.META_TEST_KEY}}
 }
 
 body:json {

@@ -5,42 +5,48 @@ meta {
 }
 
 post {
-  url: {{tpi_local_url}}/tpi/payment/xendit/invoice
+  url: {{tpi_gtw_stg_url}}/tpi/payment/xendit/invoice
   body: json
+  auth: none
 }
 
 headers {
   x-plugin-name: WOOCOMMERCE
-  Authorization: Basic {{process.env.PRIVATE_KEY_STG_TEST}}
+  Authorization: Basic eG5kX2RldmVsb3BtZW50X0ZrY1pPekhDMEM4eWZQZDJKenZ2aDV5SmtBSzVKMjA1ano0MlpBZ3cweTRQa1h0d1h6eHNQTUJsTldpOGpQR1U6
 }
 
 body:json {
   {
-      "amount": 10000,
-      "external_id": "3f34db11-67c2-4265-8e60-7a4eddcdxd6xG",
-      "success_redirect_url": "https://google.com",
-      "currency": "IDR",
-      "platform_callback_url": "https://webhook.site/6c9b8c04-c2d1-4475-85ff-d56088e2c355",
-      "client_type": "INTEGRATION",
-      "invoice_duration": 31536000,
-      "customer": {
-          "full_name": "synthetics",
-          "email": "yano@xendit.co"
-      },
-      "description": "synthetics-test",
-      "payer_email": "yano@xendit.co",
-      "items": [
-          {
-              "name": "ItemName001",
-              "price": 100005,
-              "quantity": 1
-          }
-      ],
-      "internal_metadata": {
-          "tpi": {
-              "id": "test",
-              "platform": "WOOCOMMERCE"
-          }
-      }
+    "external_id": "woocommerce-xendit-16038",
+    "amount": "100000.00",
+    "currency": "IDR",
+    "payer_email": "synthetics@mail.co",
+    "description": "Payment for Order #16038 at PHP8.1 - Xendit",
+    "client_type": "INTEGRATION",
+    "success_redirect_url": "https://woocommerce-demo.xendit.co/checkout/order-received/16038/?key=wc_order_fh4wwfNCFChg8",
+    "failure_redirect_url": "https://woocommerce-demo.xendit.co/checkout/",
+    "platform_callback_url": "https://woocommerce-demo.xendit.co/?wc-api=wc_xendit_callback&xendit_mode=xendit_invoice_callback",
+    "checkout_redirect_flow": "CHECKOUT_PAGE",
+    "items": "[{\"id\":\"64\",\"name\":\"Cypress Mug\",\"price\":\"100000\",\"type\":\"PRODUCT\",\"quantity\":\"1\",\"url\":\"https:\\/\\/woocommerce-demo.xendit.co\\/product\\/cypress-mug\\/\",\"category\":\"Test\"}]",
+    "customer": "{\"given_names\":\"test\",\"surname\":\"Testing\",\"email\":\"synthetics@mail.co\",\"mobile_number\":\"+62811111111111\",\"addresses\":[{\"country\":\"ID\",\"street_line1\":\"test\",\"street_line2\":\"teest\",\"city\":\"test-2\",\"state\":\"BA\",\"postal_code\":\"12345\"}]}",
+    "payment_methods": [
+      "BNI",
+      "BRI",
+      "BSI",
+      "BJB",
+      "SAHABAT_SAMPOERNA",
+      "MANDIRI",
+      "PERMATA",
+      "OVO",
+      "LBC",
+      "DP_ECPAY_SCHOOL",
+      "ASTRAPAY",
+      "AKULAKU",
+      "DD_RCBC",
+      "ATOME",
+      "DD_CHINABANK",
+      "CIMB",
+      "CREDIT_CARD"
+    ]
   }
 }

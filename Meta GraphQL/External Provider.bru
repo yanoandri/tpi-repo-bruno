@@ -1,0 +1,43 @@
+meta {
+  name: External Provider
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://graph.facebook.com/payments/external_provider_notification?access_token=512288084252593|G7EfvJSRfIOf8XxBXVhrurP1dR0
+  body: json
+  auth: none
+}
+
+query {
+  access_token: 512288084252593|G7EfvJSRfIOf8XxBXVhrurP1dR0
+}
+
+headers {
+  access-token: 
+}
+
+body:json {
+  {
+    "id": "655eb2e970671922902343f8",
+    "event": "CHECKOUT_STATUS",
+    "amount": 599,
+    "isLive": false,
+    "status": "PAID",
+    "paid_at": "2023-11-23T02:03:26.331Z",
+    "currency": "PHP",
+    "account_id": "c85d22cc-60c9-42e1-ac29-d40d87388e4b",
+    "business_id": "6454c033479671c7db829ebf",
+    "callback_id": "88d7e4d02e50994baba9a41e9a13a307",
+    "expiry_date": "2023-11-24T02:03:21.250Z",
+    "external_id": "872873591178460",
+    "invoice_url": "https://checkout-staging.xendit.co/v2/655eb2e970671922902343f8",
+    "kafkaUpdatedAt": "2023-11-23T02:03:30.449Z",
+    "payment_channel": "GCASH",
+    "callback_timestamp": "2023-11-23T02:03:30.603Z",
+    "cancel_redirect_url": "https://www.facebook.com/payments/cancel",
+    "failure_redirect_url": "https://www.facebook.com/payments/cancel",
+    "success_redirect_url": "https://www.facebook.com/payments/success"
+  }
+}
