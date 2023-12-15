@@ -1,0 +1,37 @@
+meta {
+  name: Initiate Plan
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{xendit-api-prod-url}}/paylater/plans
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Basic {{process.env.PRIVATE_KEY_PROD_TEST}}
+  api-version: 2021-06-30
+}
+
+body:json {
+  {
+    "customer_id": "cust-9c6098c2-8e7a-45df-bd95-a7318c863ae3",
+    "channel_code": "ID_KREDIVO",
+    "currency": "IDR",
+    "amount": 1000000,
+    "order_items": [
+      {
+        "type": "PHYSICAL_PRODUCT",
+        "reference_id": "SKU_123-456-789",
+        "name": "Dyson Vacuum",
+        "net_unit_amount": 1000000,
+        "quantity": 3,
+        "url": "https://www.zngmyhome.com/dyson_vacuum",
+        "category": "Electronics",
+        "subcategory": "Appliances"
+      }
+    ]
+  }
+}

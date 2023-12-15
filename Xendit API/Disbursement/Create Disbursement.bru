@@ -1,0 +1,26 @@
+meta {
+  name: Create Disbursement
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{xendit-api-prod-url}}/disbursements
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Basic {{process.env.PRIVATE_KEY_PROD_TEST}}
+}
+
+body:json {
+  {
+     "external_id": "disb-{{$timestamp}}",
+     "amount": 90000,
+     "bank_code": "BCA",
+     "account_holder_name": "MICHAEL CHEN",
+     "account_number": "1234567890",
+     "description":"Reimbursement for shoes"
+  }
+}

@@ -1,0 +1,24 @@
+meta {
+  name: Create Hosted 3ds
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{tpi_stg_url}}/payment/xendit/credit-card/hosted-3ds
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Basic {{process.env.PUBLIC_KEY_STG_TEST}}
+  x-plugin-name: WOOCOMMERCE
+}
+
+body:json {
+  {
+    "token_id": "65697310f17d6b001bb66409",
+    "amount": 150000,
+    "external_id": "yano-123-hosted3ds"
+  }
+}

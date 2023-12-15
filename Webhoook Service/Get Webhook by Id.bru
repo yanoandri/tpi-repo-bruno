@@ -1,0 +1,19 @@
+meta {
+  name: Get Webhook by Id
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{webhook-pod-dev-url}}/webhooks?search_query=woocommerce-xendit-65779db3aad96-16564
+  body: none
+  auth: none
+}
+
+query {
+  search_query: woocommerce-xendit-65779db3aad96-16564
+}
+
+headers {
+  business-id: 607018500f95de409d6e0ce9
+}

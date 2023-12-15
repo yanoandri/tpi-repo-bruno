@@ -1,0 +1,22 @@
+meta {
+  name: Retrieve Accessible Account API
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{xendit-api-stg-url}}/linked_account_tokens/lat-cf37c1d9-2c72-4713-9da8-7cdbab777e65/accounts
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Basic {{process.env.PRIVATE_KEY_STG_TEST}}
+  api-version: 2020-10-31
+}
+
+body:json {
+  {
+      "otp_code": "333000"
+  }
+}

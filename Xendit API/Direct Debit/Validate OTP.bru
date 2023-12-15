@@ -1,0 +1,22 @@
+meta {
+  name: Validate OTP
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{xendit-api-stg-url}}/linked_account_tokens/lat-b09471e0-2c5f-44d8-8b2d-5756399098d2/validate_otp
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Basic {{process.env.PRIVATE_KEY_STG_TEST}}
+  api-version: 2020-10-31
+}
+
+body:json {
+  {
+      "otp_code": "333000"
+  }
+}

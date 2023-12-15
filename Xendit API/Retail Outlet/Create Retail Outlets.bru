@@ -1,0 +1,26 @@
+meta {
+  name: Create Retail Outlets
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{xendit-api-stg-url}}/payment_codes
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Basic {{process.env.PRIVATE_KEY_STG_TEST}}
+}
+
+body:json {
+  {
+    "reference_id": "123",
+    "channel_code": "CEBUANA",
+    "customer_name": "Rika Sutanto",
+    "amount": 50,
+    "currency": "PHP",
+    "market": "PH"
+  }
+}

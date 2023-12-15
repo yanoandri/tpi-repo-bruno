@@ -1,0 +1,27 @@
+meta {
+  name: Create Direct Debits
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{xendit-api-stg-url}}/direct_debits
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Basic {{process.env.PRIVATE_KEY_STG_TEST}}
+  idempotency-key: xxxx-1-2222-3333-4
+}
+
+body:json {
+  {
+      "reference_id": "my_sample_payment_1_xxx-1",
+      "payment_method_id": "pm-ec742bb9-666e-4d4d-87e0-01064fbfb114",
+      "currency": "PHP",
+      "amount": 100,
+      "enable_otp": false,
+      "callback_url": "https://webhook.site/0c8e8f36-78e4-45ca-8aef-748a24ec3acf"
+  }
+}

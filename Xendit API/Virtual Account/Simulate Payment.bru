@@ -1,0 +1,21 @@
+meta {
+  name: Simulate Payment
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{xendit-api-prod-url}}/callback_virtual_accounts/external_id=va-1475804036622/simulate_payment
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Basic {{process.env.PRIVATE_KEY_PROD_TEST}}
+}
+
+body:json {
+  {
+      "amount": 50000
+  }
+}

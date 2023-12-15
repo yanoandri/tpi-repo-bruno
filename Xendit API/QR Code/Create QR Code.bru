@@ -1,0 +1,29 @@
+meta {
+  name: Create QR Code
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{xendit-api-stg-url}}/qr_codes
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Basic {{process.env.PRIVATE_KEY_STG_TEST}}
+  api-version: 2022-07-31
+  webhook-url: https://httpstat.us/200
+}
+
+body:json {
+  {
+      "reference_id": "order-id-1666420204",
+      "external_id": "ext-123456759",
+      "type": "DYNAMIC",
+      "callback_url": "https://httpstat.us/200",
+      "currency": "IDR",
+      "amount": 10000,
+      "expires_at": "2023-12-31T09:56:43.60445Z"
+  }
+}

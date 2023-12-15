@@ -1,0 +1,31 @@
+meta {
+  name: Create Ewallet
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{xendit-api-stg-url}}/ewallets/charges
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Basic {{process.env.PRIVATE_KEY_STG_TEST}}
+  callback-url: https://webhook.site/0c8e8f36-78e4-45ca-8aef-748a24ec3acf
+}
+
+body:json {
+  {
+    "reference_id": "order-id-yano-123",
+    "currency": "PHP",
+    "amount": 100,
+    "checkout_method": "ONE_TIME_PAYMENT",
+    "channel_code": "PH_GCASH",
+    "channel_properties": {
+      "success_redirect_url": "https://google.com",
+      "failure_redirect_url": "https://youtube.com",
+      "cancel_redirect_url": "https://facebook.com"
+    }
+  }
+}

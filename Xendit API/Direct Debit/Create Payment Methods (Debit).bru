@@ -1,0 +1,26 @@
+meta {
+  name: Create Payment Methods (Debit)
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{xendit-api-stg-url}}/payment_methods
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Basic {{process.env.PRIVATE_KEY_STG_TEST}}
+  api-version: 2020-10-31
+}
+
+body:json {
+  {
+    "customer_id": "cust-fd0e7062-b25b-49c4-bf85-2b18a0c76e55",
+    "type": "DEBIT_CARD",
+    "properties": {
+      "id": "la-babcc61c-5fc0-4f4a-90b4-6784b6212476"
+    }
+  }
+}

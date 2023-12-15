@@ -1,0 +1,24 @@
+meta {
+  name: Create Charge
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{xendit-api-stg-url}}/credit_card_charges
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Basic {{process.env.PRIVATE_KEY_STG_TEST}}
+}
+
+body:json {
+  {
+    "token_id": "6579c6526a53e7001f91505a",
+    "external_id": "postman-charge-1502436818",
+    "amount": 75000,
+    "authentication_id": "6579cad54652f10020d178d8"
+  }
+}

@@ -1,0 +1,27 @@
+meta {
+  name: Create Payment Request (Credit Card)
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{xendit-api-prod-url}}/payment_requests
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Basic {{process.env.PRIVATE_KEY_PROD_TEST}}
+}
+
+body:json {
+  {
+    "currency": "IDR",
+    "amount": 10000,
+    "payment_method_id": "pm-81f33557-ecd2-4d6f-8da7-2a3152482fe7",
+    "capture_method": "MANUAL",
+    "channel_properties": {
+      "skip_three_d_secure": false
+    }
+  }
+}

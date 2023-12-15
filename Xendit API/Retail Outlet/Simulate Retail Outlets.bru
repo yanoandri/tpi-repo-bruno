@@ -1,0 +1,23 @@
+meta {
+  name: Simulate Retail Outlets
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{xendit-api-stg-url}}/fixed_payment_code/simulate_payment
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Basic {{process.env.PRIVATE_KEY_STG_TEST}}
+}
+
+body:json {
+  {
+      "retail_outlet_name": "ALFAMART",
+      "payment_code": "TEST907900",
+      "transfer_amount": 10000
+  }
+}

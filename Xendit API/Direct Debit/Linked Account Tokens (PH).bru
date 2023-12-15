@@ -1,0 +1,30 @@
+meta {
+  name: Linked Account Tokens (PH)
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{xendit-api-stg-url}}/linked_account_tokens/auth
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Basic {{process.env.PRIVATE_KEY_STG_TEST}}
+}
+
+body:json {
+  {
+    "customer_id": "cust-fd0e7062-b25b-49c4-bf85-2b18a0c76e55",
+    "channel_code": "BA_BPI",
+    "properties": {
+      "success_redirect_url": "https://company.co/success",
+      "failure_redirect_url": "https://company.co/failure",
+      "callback_url": "https://company.co/callback"
+    },
+    "metadata": {
+      "origin": "mobile_app"
+    }
+  }
+}

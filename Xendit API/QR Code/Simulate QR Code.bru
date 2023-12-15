@@ -1,0 +1,22 @@
+meta {
+  name: Simulate QR Code
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{xendit-api-stg-url}}/qr_codes/qr_fa7569aa-9aee-4fe8-b13a-614f2c1f9c1d/payments/simulate
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Basic {{process.env.PRIVATE_KEY_STG_TEST}}
+  api-version: 2022-07-31
+}
+
+body:json {
+  {
+      "amount": 10000
+  }
+}

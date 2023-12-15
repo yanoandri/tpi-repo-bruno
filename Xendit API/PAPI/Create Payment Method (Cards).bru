@@ -1,0 +1,38 @@
+meta {
+  name: Create Payment Method (Cards)
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{xendit-api-prod-url}}/v2/payment_methods
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Basic {{process.env.PRIVATE_KEY_PROD_TEST}}
+}
+
+body:json {
+  {
+    "type": "CARD",
+    "card": {
+      "currency": "IDR",
+      "channel_properties": {
+        "success_return_url": "https://redirect.me/goodstuff",
+        "failure_return_url": "https://redirect.me/badstuff"
+      },
+      "card_information": {
+        "card_number": "4000000000001091",
+        "expiry_month": "12",
+        "expiry_year": "2026",
+        "cardholder_name": "Zaki Arrozi Arsyad",
+        "cvv": "123"
+      }
+    },
+    "reusability": "MULTIPLE_USE",
+    "description": "PAPI Test for Cards",
+    "metadata": {}
+  }
+}

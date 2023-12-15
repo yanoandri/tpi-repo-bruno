@@ -1,0 +1,21 @@
+meta {
+  name: SImulate (QR, VA, OTC)
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{xendit-api-prod-url}}/v2/payment_methods/pm-e546b7ae-696e-44f8-8ea1-d8781cbacf04/payments/simulate
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Basic {{process.env.PRIVATE_KEY_PROD_TEST}}
+}
+
+body:json {
+  {
+    "amount": 15000
+  }
+}

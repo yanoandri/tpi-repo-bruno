@@ -1,0 +1,29 @@
+meta {
+  name: Create Customer
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{xendit-api-stg-url}}/customers
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Basic {{process.env.PRIVATE_KEY_STG_TEST}}
+  api-version: 2020-10-31
+}
+
+body:json {
+  {
+    "reference_id": "demo_1475801962607",
+    "type": "INDIVIDUAL",
+    "individual_detail": {
+      "given_names": "John",
+      "surname": "Doe"
+    },
+    "email": "customer@website.com",
+    "mobile_number": "+628121234567890"
+  }
+}
