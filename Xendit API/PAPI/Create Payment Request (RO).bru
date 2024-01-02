@@ -1,0 +1,36 @@
+meta {
+  name: Create Payment Request (RO)
+  type: http
+  seq: 9
+}
+
+post {
+  url: {{xendit-api-prod-url}}/payment_requests
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Basic {{process.env.PRIVATE_KEY_PROD_TEST}}
+}
+
+body:json {
+  {
+    "amount": 10000,
+    "currency": "IDR",
+    "country": "ID",
+    "payment_method": {
+      "type": "OVER_THE_COUNTER",
+      "reusability": "ONE_TIME_USE",
+      "over_the_counter": {
+        "channel_code": "INDOMARET",
+        "channel_properties": {
+          "customer_name": "John Doe"
+        }
+      }
+    },
+    "metadata": {
+      "foo": "bar"
+    }
+  }
+}

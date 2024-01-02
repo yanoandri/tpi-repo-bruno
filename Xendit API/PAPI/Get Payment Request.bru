@@ -5,34 +5,11 @@ meta {
 }
 
 get {
-  url: {{xendit-api-prod-url}}/v2/payment_request/pr-5caa5e5b-7a22-4d9a-8a01-7eb5bd83e624
+  url: {{xendit-api-prod-url}}/payment_requests/pr-f1b3de09-a347-439b-a797-37dbf9f86b03
   body: json
   auth: none
 }
 
 headers {
   Authorization: Basic {{process.env.PRIVATE_KEY_PROD_TEST}}
-}
-
-body:json {
-  {
-    "type": "CARD",
-    "card": {
-      "currency": "IDR",
-      "channel_properties": {
-        "success_return_url": "https://redirect.me/goodstuff",
-        "failure_return_url": "https://redirect.me/badstuff"
-      },
-      "card_information": {
-        "card_number": "4000000000001091",
-        "expiry_month": "12",
-        "expiry_year": "2026",
-        "cardholder_name": "Zaki Arrozi Arsyad",
-        "cvv": "123"
-      }
-    },
-    "reusability": "MULTIPLE_USE",
-    "description": "PAPI Test for Cards",
-    "metadata": {}
-  }
 }

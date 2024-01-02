@@ -20,18 +20,19 @@ body:json {
     "currency": "IDR",
     "description": "description 123",
     "payment_method": {
-      "reference_id": "reference_id-pm-level-123",
-      "reusability": "ONE_TIME_USE",
+      "reference_id": "reference_id-pm-level-128",
+      "reusability": "MULTIPLE_USE",
       "type": "VIRTUAL_ACCOUNT",
       "virtual_account": {
-        "channel_code": "MANDIRI",
+        "channel_code": "BRI",
         "channel_properties": {
           "customer_name": "John Doe",
-          "virtual_account_number": "9999171877",
-          "expires_at": "2023-12-15T17:00:00Z"
+          "virtual_account_number": "9999171878",
+          "expires_at": "2025-12-15T17:00:00Z"
         }
       }
     },
-    "reference_id": "reference_id-pm-level-123"
+    "reference_id": "reference_id-pm-level-128",
+    "capture_method": "AUTOMATIC"
   }
 }

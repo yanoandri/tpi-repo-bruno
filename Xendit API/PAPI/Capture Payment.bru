@@ -1,0 +1,21 @@
+meta {
+  name: Capture Payment
+  type: http
+  seq: 10
+}
+
+post {
+  url: {{xendit-api-prod-url}}/payment_requests/pr-64639ccf-f285-47e3-b2a9-7a27b63d3910/captures
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Basic {{process.env.PRIVATE_KEY_PROD_TEST}}
+}
+
+body:json {
+  {
+    "capture_amount": 10000
+  }
+}

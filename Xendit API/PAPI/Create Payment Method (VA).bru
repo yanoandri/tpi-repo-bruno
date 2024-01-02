@@ -1,11 +1,11 @@
 meta {
-  name: Get Payment Method
+  name: Create Payment Method (VA)
   type: http
-  seq: 6
+  seq: 8
 }
 
-get {
-  url: {{xendit-api-prod-url}}/v2/payment_methods/pm-a25c15e2-1a11-4af9-a95c-02e3cc4b3c9d
+post {
+  url: {{xendit-api-prod-url}}/v2/payment_methods
   body: json
   auth: none
 }
