@@ -1,0 +1,24 @@
+meta {
+  name: Search direct query
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{stg-opensearch}}/webhooks*/_search
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "query": {
+      "match": {
+        "id": {
+          "query": "6b6a3022-badb-4db2-8496-2399de541cb4",
+          "minimum_should_match": 1
+        }
+      }
+    }
+  }
+}

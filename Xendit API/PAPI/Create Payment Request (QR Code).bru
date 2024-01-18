@@ -1,7 +1,7 @@
 meta {
-  name: Create Payment Request (EWallet)
+  name: Create Payment Request (QR Code)
   type: http
-  seq: 1
+  seq: 11
 }
 
 post {
@@ -16,21 +16,20 @@ headers {
 
 body:json {
   {
+    "amount": 10000,
     "currency": "IDR",
-    "amount": 100000,
+    "country": "ID",
     "payment_method": {
-      "type": "EWALLET",
+      "type": "QR_CODE",
       "reusability": "ONE_TIME_USE",
-      "ewallet": {
-        "channel_code": "SHOPEEPAY",
+      "qr_code": {
         "channel_properties": {
-          "success_return_url": "https://your-redirect-website.com/success"
+          "expires_at": "2024-02-25T00:00:00Z"
         }
       }
     },
-    "customer_id": "fc4c060b-3c41-4707-b7b2-df9c3376edde",
     "metadata": {
-      "sku": "ABCDEFGH"
+      "foo": "bar"
     }
   }
 }

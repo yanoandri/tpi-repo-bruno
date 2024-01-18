@@ -1,0 +1,38 @@
+meta {
+  name: Create Payment Request (Direct Debit)
+  type: http
+  seq: 12
+}
+
+post {
+  url: {{xendit-api-prod-url}}/payment_requests
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Basic {{process.env.PRIVATE_KEY_PROD_TEST}}
+}
+
+body:json {
+  {
+    "amount": 100000,
+    "currency": "IDR",
+    "payment_method": {
+      "type": "DIRECT_DEBIT",
+      "direct_debit": {
+        "channel_code": "MANDIRI",
+        "channel_properties": {
+          "success_return_url": "https://redirect.me/goodstuff",
+          "failure_return_url": "https://redirect.me/badstuff"
+        }
+      },
+      "reusability": "ONE_TIME_USE"
+    },
+    "customer_id": "cust-90c85e23-a987-4594-ada9-7725b979623e",
+    "description": "This is a description.",
+    "metadata": {
+      "foo": "bar"
+    }
+  }
+}

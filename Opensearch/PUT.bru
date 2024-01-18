@@ -1,0 +1,32 @@
+meta {
+  name: PUT
+  type: http
+  seq: 1
+}
+
+put {
+  url: http://my-domain.us-east-1.opensearch.localhost.localstack.cloud:4566
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "settings": {
+      "index": {
+        "number_of_shards": 2,
+        "number_of_replicas": 1
+      }
+    },
+    "mappings": {
+      "properties": {
+        "age": {
+          "type": "integer"
+        }
+      }
+    },
+    "aliases": {
+      "sample-alias1": {}
+    }
+  }
+}

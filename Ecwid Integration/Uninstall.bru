@@ -1,0 +1,33 @@
+meta {
+  name: Uninstall
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{tpi-gateway-stg}}/ecwid/webhook/uninstall?eventtype=test
+  body: json
+  auth: none
+}
+
+query {
+  eventtype: test
+}
+
+headers {
+  X-Ecwid-Webhook-Signature: JGJbaCQBgt3X74BD/vfu1orMV85vIo8xrs0eZ0cXIZQ=
+  ~Host: test.com
+  ~Content-Type: application/json; charset=UTF-8
+  ~Content-Length: 243
+  ~Cache-Control: no-cache
+}
+
+body:json {
+  {
+    "eventId": "bb97dbb2-c79e-4009-925c-03fea32427cf",
+    "eventCreated": 1705507645,
+    "storeId": 64787323,
+    "entityId": 64787323,
+    "eventType": "application.uninstalled"
+  }
+}

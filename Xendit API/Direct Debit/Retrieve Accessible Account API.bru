@@ -5,13 +5,13 @@ meta {
 }
 
 get {
-  url: {{xendit-api-stg-url}}/linked_account_tokens/lat-cf37c1d9-2c72-4713-9da8-7cdbab777e65/accounts
+  url: {{xendit-api-prod-url}}/linked_account_tokens/lat-631a6fb1-234b-43f0-b153-48a841497f3b/accounts
   body: json
   auth: none
 }
 
 headers {
-  Authorization: Basic {{process.env.PRIVATE_KEY_STG_TEST}}
+  Authorization: Basic {{process.env.PRIVATE_KEY_PROD_TEST}}
   api-version: 2020-10-31
 }
 

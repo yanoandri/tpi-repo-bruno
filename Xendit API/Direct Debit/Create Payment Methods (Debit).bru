@@ -5,22 +5,22 @@ meta {
 }
 
 post {
-  url: {{xendit-api-stg-url}}/payment_methods
+  url: {{xendit-api-prod-url}}/payment_methods
   body: json
   auth: none
 }
 
 headers {
-  Authorization: Basic {{process.env.PRIVATE_KEY_STG_TEST}}
+  Authorization: Basic {{process.env.PRIVATE_KEY_PROD_TEST}}
   api-version: 2020-10-31
 }
 
 body:json {
   {
-    "customer_id": "cust-fd0e7062-b25b-49c4-bf85-2b18a0c76e55",
+    "customer_id": "cust-90c85e23-a987-4594-ada9-7725b979623e",
     "type": "DEBIT_CARD",
     "properties": {
-      "id": "la-babcc61c-5fc0-4f4a-90b4-6784b6212476"
+      "id": "la-1fea71ef-1dcc-4c07-9191-8d54b9be48c9"
     }
   }
 }

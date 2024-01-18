@@ -1,0 +1,69 @@
+meta {
+  name: Create index template
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{stg-opensearch}}/_index_template/webhook_template
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "index_patterns": [
+      "webhooks-*"
+    ],
+    "template": {
+      "aliases": {
+        "webhooks": {}
+      },
+      "settings": {
+        "number_of_shards": 5,
+        "number_of_replicas": 1
+      },
+      "mappings": {
+        "dynamic": "false",
+        "properties": {
+          "id": {
+            "type": "keyword"
+          },
+          "type": {
+            "type": "keyword"
+          },
+          "business_id": {
+            "type": "keyword"
+          },
+          "url": {
+            "type": "keyword"
+          },
+          "status": {
+            "type": "keyword"
+          },
+          "is_using_auto_retry": {
+            "type": "boolean"
+          },
+          "payload_id": {
+            "type": "keyword"
+          },
+          "payload_additionalinfo_id": {
+            "type": "keyword"
+          },
+          "payload_reference_id": {
+            "type": "keyword"
+          },
+          "is_live": {
+            "type": "boolean"
+          },
+          "created_at": {
+            "type": "date"
+          },
+          "updated_at": {
+            "type": "date"
+          }
+        }
+      }
+    }
+  }
+}

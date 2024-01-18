@@ -5,22 +5,20 @@ meta {
 }
 
 post {
-  url: {{xendit-api-stg-url}}/payment_codes
+  url: {{xendit-api-prod-url}}/fixed_payment_code
   body: json
   auth: none
 }
 
 headers {
-  Authorization: Basic {{process.env.PRIVATE_KEY_STG_TEST}}
+  Authorization: Basic {{process.env.PRIVATE_KEY_PROD_TEST}}
 }
 
 body:json {
   {
-    "reference_id": "123",
-    "channel_code": "CEBUANA",
-    "customer_name": "Rika Sutanto",
-    "amount": 50,
-    "currency": "PHP",
-    "market": "PH"
+    "external_id": "123",
+    "retail_outlet_name": "ALFAMART",
+    "name": "Rika Sutanto",
+    "expected_amount": 10000
   }
 }

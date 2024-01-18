@@ -1,0 +1,64 @@
+meta {
+  name: Search
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{prod-opensearch}}/_search
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "query": {
+      "bool": {
+        "filter": [
+          {
+            "bool": {
+              "filter": [
+                {
+                  "term": {
+                    "business_id": {
+                      "value": "6166bbcce0dd776dc0c58a34"
+                    }
+                  }
+                },
+                {
+                  "term": {
+                    "is_live": {
+                      "value": true
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "bool": {
+              "should": [
+                {
+                  "terms": {
+                    "payload_id": [
+                      "ewc_08a80171-ade5-4b12-b8af-03af604be23d",
+                      "ewc_01c4594d-1cb5-49ff-9bc0-0823c2e248f3"
+                    ]
+                  }
+                },
+                {
+                  "terms": {
+                    "payload_reference_id": [
+                      "10012023121315105648700042"
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "size": "50"
+  }
+}

@@ -1,0 +1,25 @@
+meta {
+  name: webhooks
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{stg-live-url}}/webhooks?is_live=false&payload_reference_ids=65a4ca398c0447ab594481a6&payload_ids=65a4ca398c0447ab594481a6&ids=65a4ca398c0447ab594481a6
+  body: none
+  auth: none
+}
+
+query {
+  is_live: false
+  payload_reference_ids: 65a4ca398c0447ab594481a6
+  payload_ids: 65a4ca398c0447ab594481a6
+  ids: 65a4ca398c0447ab594481a6
+  ~offset: 0
+  ~limit: 50
+  ~sort: desc
+}
+
+headers {
+  business-id: 62540e594bca2499a93c732c
+}
